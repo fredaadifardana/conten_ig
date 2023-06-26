@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <title>Form Input</title>
+</head>
+
+<body>
+    <form action="" id="form">
+        <div class="container-file">
+            <div class="container-img">
+                <img id="image" src="" alt="">
+            </div>
+            <div class="container-uploadFile">
+                <label for="uploadFile"><i class="fas fa-pen"></i></label>
+            </div>
+            <input id="uploadFile" type="file" name="uploadFile">
+        </div>
+        <div class="container-username">
+            <label class="label-username" for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Username">
+        </div>
+        <div class="container-password">
+            <label class="label-password" for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="Password">
+        </div>
+        <p id="output">Result</p>
+        <input type="submit" value="Submit Data" id="submit">
+    </form>
+    <script src="script.js"></script>
+</body>
+
+</html>
