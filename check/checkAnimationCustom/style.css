@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  background-color: #1e2640;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapp {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  -webkit-appearance: none;
+  background-color: rgb(129, 129, 129);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transition: 0s linear 0s;
+}
+
+input[type="checkbox"]::after {
+  font-family: "Font Awesome 5 Free";
+  content: "\e20a";
+  color: white;
+  font-size: 2.8rem;
+  font-weight: 900;
+  opacity: 0;
+}
+
+input[type="checkbox"]:hover {
+  background-color: rgb(33, 82, 66);
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+  background-color: rgb(46, 171, 130);
+  transition: 0s linear 0.4s;
+}
+
+input[type="checkbox"]:not(:checked):after {
+  animation: not-check 0.3s ease-in-out forwards;
+}
+
+input[type="checkbox"]:checked::after {
+  animation: check 0.3s ease-in-out 0.4s forwards;
+}
+
+@keyframes check {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes not-check {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.semi-circle1 {
+  position: absolute;
+  width: 40px;
+  height: 80px;
+  left: -40px;
+  background-color: #1e2640;
+  border-radius: 40px 0px 0px 40px;
+  overflow: hidden;
+}
+
+.semi-circle1::before {
+  position: absolute;
+  content: "";
+  width: 40px;
+  height: 80px;
+  background-color: rgb(46, 171, 130);
+  left: 40px;
+  border-radius: 0px 40px 40px 0px;
+  transform: rotate(0deg);
+  transform-origin: 0% 50%;
+  transition: 0.2s linear 0.2s;
+}
+
+.semi-circle2 {
+  position: absolute;
+  left: 0;
+  width: 40px;
+  height: 80px;
+  background-color: #1e2640;
+  border-radius: 0px 40px 40px 0px;
+  overflow: hidden;
+}
+
+.semi-circle2::before {
+  position: absolute;
+  content: "";
+  width: 40px;
+  height: 80px;
+  border-radius: 40px 0px 0px 40px;
+  background-color: rgb(46, 171, 130);
+  left: -40px;
+  transform: rotate(0deg);
+  transform-origin: 100% 50%;
+  transition: 0.2s linear 0s;
+}
+
+.inset-circle {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  background-color: #1e2640;
+  border-radius: calc(75px / 2);
+}
+
+input[type="checkbox"]:checked ~ .semi-circle1::before {
+  transform: rotate(-180deg);
+  transition-delay: 0s;
+}
+
+input[type="checkbox"]:checked ~ .semi-circle2::before {
+  transform: rotate(-180deg);
+  transition: 0.2s linear 0.2s;
+}

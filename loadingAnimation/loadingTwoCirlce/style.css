@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1e2640;
+}
+
+.wrapp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 60px;
+  width: 80px;
+  transform-style: preserve-3d;
+}
+.circle {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.one {
+  background-color: white;
+  left: 0%;
+  animation: circleOne 1.3s linear infinite forwards;
+}
+
+.two {
+  left: 50%;
+  background-color: #ce2380;
+  animation: circleTwo 1.3s linear infinite forwards;
+}
+
+@keyframes circleOne {
+  25% {
+    transform: translateZ(1px) scale(1.2);
+    left: 25%;
+  }
+  50% {
+    transform: translateZ(0px) scale(1);
+    left: 50%;
+  }
+  75% {
+    transform: translateZ(-1px) scale(0.8);
+    left: 25%;
+  }
+}
+
+@keyframes circleTwo {
+  25% {
+    transform: translateZ(-1px) scale(0.8);
+    left: 25%;
+  }
+  50% {
+    transform: translateZ(0px) scale(1);
+    left: 0%;
+  }
+  75% {
+    transform: translateZ(1px) scale(1.2);
+    left: 25%;
+  }
+}

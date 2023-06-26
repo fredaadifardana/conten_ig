@@ -1,0 +1,87 @@
+@keyframes textAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ===== navigation ===== */
+nav .active {
+  width: 80%;
+}
+
+#toggle #icon_toggle.active {
+  transform: rotate(45deg);
+}
+
+#toggle #icon_toggle.active::before {
+  transform: translate(calc(15px / 2), calc(200% - 1px)) rotate(90deg);
+}
+
+#toggle #icon_toggle.active::after {
+  transform: translate(calc(15px / 2), calc(-200% + 1px)) rotate(90deg);
+}
+
+nav.active {
+  background-color: var(--primary-color);
+}
+
+nav #navbar.active {
+  height: 290px;
+  padding-top: 60px;
+}
+
+/* ===== Beranda ===== */
+
+/* ===== Sejarah ===== */
+#sejarah h2.active,
+#sejarah p.active,
+#sejarah .sejarah-img.active {
+  opacity: 1;
+}
+
+
+/* ===== Geografis ===== */
+#geografis h2.active,
+#geografis p.active,
+#geografis .geografis-img.active {
+  opacity: 1;
+}
+
+
+/* ===== Wisata ===== */
+#wisata .wrapp-wisata:hover {
+  transform: scale(1.1);
+  margin: 0 10px;
+  overflow: visible;
+}
+
+#wisata .wrapp-wisata:hover::before {
+  transform: scale(1.1);
+  transition: 0s ease 0s;
+}
+
+#wisata .wrapp-wisata.disable {
+  pointer-events: none;
+}
+
+#wisata h2.active {
+  opacity: 1;
+}
+
+#wisata .container-wisata.active {
+  opacity: 1;
+}
+
+/* Aside */
+aside h2.active, .container-profile figure.active, .container-profile .deskripsi.active, .container-profile .sosial-media.active {
+  opacity: 1;
+}
+
+.sosial-media .container-icon:hover {
+  fill: var(--primary-color);
+  transform: scale(1.2);
+}
+

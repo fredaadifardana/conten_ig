@@ -1,0 +1,782 @@
+/* @font-face {
+  font-family: "Poppins Regular";
+  src: url(font/Poppins-Regular.ttf) format("truetype");
+} */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+:root {
+  --h-text: "Poppins", sans-serif;
+  --p-text: Arial, Helvetica, sans-serif;
+  --primary-color: #fa961d;
+  --secondary-color: #e4e4e4;
+  --dark-color: #101010;
+  --light-color: #ffffff;
+}
+
+html {
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  /* padding: 0 20px; */
+}
+
+/* ===== Nav ===== */
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+header nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  z-index: 9999;
+}
+
+nav .logo {
+  display: inline-block;
+  font-family: var(--h-text);
+  font-size: 28px;
+  font-weight: 700;
+  margin-left: 40px;
+  color: var(--light-color);
+}
+
+nav .logo > span {
+  color: var(--primary-color);
+}
+
+nav #click {
+  display: none;
+}
+
+nav ul {
+  display: flex;
+  margin-right: 20px;
+  justify-content: space-between;
+  position: relative;
+}
+
+nav li {
+  list-style-type: none;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+nav a {
+  font-family: var(--h-text);
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  position: relative;
+  color: var(--light-color);
+  line-height: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+nav .links {
+  display: inline-block;
+  height: 3px;
+  width: 0;
+  position: absolute;
+  background-color: var(--primary-color);
+  bottom: -12px;
+  border-radius: 3px;
+  transform-origin: right;
+  transition: 0.2s;
+}
+
+/* ===== Content ===== */
+.content {
+  position: relative;
+}
+
+.content article,
+main article {
+  position: relative;
+  width: 100%;
+  min-width: 350px;
+  height: 100vh;
+  padding-top: 60px;
+  display: flex;
+  overflow: hidden;
+}
+
+/* ===== Beranda ===== */
+.content #beranda {
+  padding-top: 0;
+}
+
+#beranda .beranda-img {
+  width: 100%;
+  height: 100%;
+  background: url(PracticeFrontend/portofolio/assets/image/beranda-img.jpg) no-repeat fixed center;
+  background-size: cover;
+  position: absolute;
+  z-index: -9999;
+}
+
+#beranda::before {
+  position: absolute;
+  content: "";
+  height: 60%;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(to top, var(--dark-color), transparent);
+  z-index: -1;
+}
+
+#beranda::after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -99;
+}
+
+.text-jember {
+  margin: auto;
+}
+
+.text-jember .text {
+  font-family: var(--h-text);
+  font-weight: 700;
+  font-size: 96px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--light-color);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  animation: textAnimation 1s ease-in forwards;
+}
+
+/* ===== Sejarah ===== */
+.content #sejarah {
+  background-color: var(--dark-color);
+}
+
+#sejarah section,
+#geografis section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  position: relative;
+  padding: 20px;
+}
+
+#sejarah .content-sejarah,
+.content .content-geografis {
+  height: 100%;
+  width: 100%;
+  /* position: relative; */
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+  flex-direction: column;
+}
+
+#sejarah h2,
+#geografis h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+  opacity: 0;
+  transition: 0.8s ease-in;
+}
+
+#sejarah p,
+#geografis p {
+  text-align: justify;
+  font-size: 16px;
+  line-height: 1.4em;
+  color: var(--light-color);
+  opacity: 0;
+  transition: 0.8s ease-in 0.2s;
+}
+
+#sejarah .sejarah-img {
+  background: url(sejarah-img.jpg) no-repeat 50% 70%;
+  background-size: cover;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  border-radius: 10px;
+  box-shadow: 15px 15px var(--primary-color);
+  overflow: hidden;
+  position: relative;
+  opacity: 0;
+  transition: 0.8s ease-in 0.4s;
+}
+
+/* ===== Geografis =====*/
+.content #geografis {
+  background-color: var(--dark-color);
+}
+
+.content #geografis {
+  align-items: center;
+}
+
+#geografis .geografis-img {
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  background: url(geografis-img.jpg) no-repeat center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: aquamarine;
+  box-shadow: -15px 15px var(--primary-color);
+  overflow: hidden;
+  position: relative;
+  opacity: 0;
+  transition: 0.8s ease-in;
+}
+
+#geografis h2 {
+  transition: 0.8s ease-in 0.2s;
+}
+
+#geografis p {
+  transition: 0.8s ease-in 0.4s;
+}
+
+/* ===== Wisata ===== */
+.content #wisata {
+  flex-direction: column;
+  align-items: center;
+  /* height: auto; */
+  background-color: var(--dark-color);
+}
+
+#wisata h2 {
+  font-size: 36px;
+  margin: 20px 0 0 0;
+  color: var(--primary-color);
+  opacity: 0;
+  transition: 0.8s ease-in;
+  /* z-index: 99; */
+}
+
+#wisata .container-wisata {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  padding: 0 20px;
+  justify-content: center;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  gap: 15px;
+  opacity: 0;
+  /* z-index: 99; */
+  transition: 0.8s ease-in;
+}
+
+/* #wisata .container-wisata::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background-color: var(--light-color);
+  bottom: 0;
+} */
+
+#wisata .wrapp-wisata {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  width: 250px;
+  height: 300px;
+  position: relative;
+  background-color: var(--light-color);
+  transition: 0.3s;
+}
+
+#wisata .wrapp-wisata::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 80%;
+  bottom: 0;
+  background: linear-gradient(0deg, var(--dark-color) 10%, transparent);
+  z-index: 1;
+  transition: 0s ease 1s;
+}
+
+.wrapp-wisata img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#wisata .content {
+  padding: 10px;
+  color: black;
+  position: absolute;
+  bottom: 0;
+  z-index: 99;
+}
+
+.content h3 {
+  font-size: 18px;
+  margin-bottom: 3px;
+  color: var(--primary-color);
+}
+
+.content p {
+  color: var(--light-color);
+  font-size: 14px;
+}
+
+/* ===== Aside ===== */
+main article {
+  padding-top: 0;
+}
+
+main aside {
+  width: 100%;
+  height: 100vh;
+  padding-top: 60px;
+  display: flex;
+  background-color: var(--dark-color);
+  flex-direction: column;
+  padding: 60px 20px 0px;
+  box-sizing: border-box;
+}
+
+aside h2 {
+  font-size: 36px;
+  margin: 20px 0 10px 0;
+  color: var(--primary-color);
+  opacity: 0;
+  text-align: center;
+  transition: 0.8s ease-in;
+}
+
+aside .container-profile {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.container-profile figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  position: relative;
+  flex-direction: column;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: 0.8s ease-in;
+}
+
+figure .shape {
+  position: absolute;
+  bottom: 0;
+  width: 170px;
+  height: 75%;
+  background-color: #fa961d;
+}
+
+figure .img-profile {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* border-radius: 40px; */
+  background: url(profile.png) no-repeat 50% 40%;
+  background-size: contain;
+  overflow: hidden;
+}
+
+figure .img-profile::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  background: linear-gradient(0deg, var(--dark-color) 5%, transparent);
+  bottom: 0;
+}
+
+.container-profile .info {
+  display: flex;
+  width: 50%;
+  padding: 0 20px 0 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+}
+
+.container-profile .deskripsi {
+  text-align: justify;
+  font-size: 16px;
+  color: var(--light-color);
+  line-height: 1.4em;
+  opacity: 0;
+  transition: 0.8s ease-in 0.2s;
+}
+
+.container-profile .sosial-media {
+  display: flex;
+  gap: 10px;
+  opacity: 0;
+  transition: 0.8s ease-in 0.4s;
+}
+
+.sosial-media .container-icon {
+  width: 32px;
+  fill: var(--light-color);
+}
+
+footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-width: 350px;
+  height: 80px;
+  background-color: var(--dark-color);
+}
+
+footer p {
+  position: absolute;
+  font-size: 16px;
+  font-weight: bold;
+  bottom: 20px;
+  color: var(--light-color);
+}
+
+@media screen and (max-width: 900px) {
+  /* nav */
+
+  /* Beranda */
+  .text-jember .text {
+    font-size: 80px;
+  }
+
+  /* Sejarah */
+
+  /* Wisata */
+  .content #wisata {
+    height: auto;
+  }
+
+  #wisata .container-wisata {
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  #wisata .wrapp-wisata {
+    min-width: 300px;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Nav */
+
+  nav a {
+    font-size: 0.9rem;
+  }
+
+  nav li {
+    margin-right: 10px;
+  }
+
+  .content article {
+    flex-direction: column;
+  }
+
+  /* Beranda */
+  .text-jember .text {
+    font-size: 72px;
+  }
+
+  /* Sejarah */
+  #sejarah section,
+  #geografis section {
+    width: 100%;
+    height: 50vh;
+    padding: 0 20px;
+  }
+
+  .content #sejarah {
+    flex-flow: column-reverse;
+  }
+
+  #sejarah .sejarah-img,
+  #geografis .geografis-img {
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: 0 0 0 var(--primary-color);
+  }
+
+  #sejarah h2,
+  #geografis h2 {
+    margin-bottom: 5px;
+  }
+
+  #sejarah .content-sejarah,
+  .content .content-geografis {
+    width: 100%;
+    height: 100%;
+    justify-content: start;
+    padding-top: 30px;
+  }
+
+  #sejarah .sejarah-img {
+    transition: 0.8s ease-in;
+  }
+
+  /* Geografis */
+  #geografis h2 {
+    transition: 0.8s ease-in;
+  }
+
+  #geografis p {
+    transition: 0.8s ease-in 0.2s;
+  }
+
+  /* Wisata */
+  #wisata .container-wisata {
+    flex-wrap: wrap;
+  }
+
+  #wisata h2 {
+    margin: 0 0 20px 0;
+  }
+
+  #wisata .wrapp-wisata {
+    min-width: 250px;
+  }
+
+  /* Aside */
+  main article {
+    height: auto;
+  }
+
+  main aside {
+    height: auto;
+  }
+
+  aside h2 {
+    margin: 10px 0 20px 0;
+  }
+
+  aside .container-profile {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .container-profile figure {
+    width: 100%;
+    height: 60vh;
+    margin-bottom: 10px;
+  }
+
+  figure .shape {
+    width: 120px;
+  }
+
+  .container-profile .info {
+    padding: 20px 10vw;
+    width: 100%;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .container-profile .deskripsi {
+    text-align: center;
+    transition: 0.8s ease-in ;
+  }
+
+  .container-profile .sosial-media {
+    transition: 0.8s ease-in ;
+  }
+
+  .sosial-media .container-icon {
+    width: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  /* Nav */
+  header nav {
+    height: 50px;
+  }
+
+  nav #toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    width: 40px;
+    margin-right: 20px;
+  }
+
+  #toggle #icon_toggle {
+    position: relative;
+    appearance: none;
+    display: block;
+    /* margin-right: 20px; */
+    width: 30px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--secondary-color);
+    transition: 0.3s;
+  }
+
+  #toggle #icon_toggle::before {
+    position: absolute;
+    content: "";
+    width: 15px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--secondary-color);
+    transform: translate(calc(15px / 2), calc(200% - 1px));
+    transition: 0.5s;
+  }
+
+  #toggle #icon_toggle::after {
+    position: absolute;
+    content: "";
+    width: 15px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--secondary-color);
+    transform: translate(calc(15px / 2), calc(-200% + 1px));
+    transition: 0.5s;
+  }
+
+  nav .logo {
+    font-size: 24px;
+    margin-left: 20px;
+  }
+
+  nav #navbar {
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    height: 0;
+    background-color: var(--dark-color);
+    align-items: center;
+    justify-content: start;
+    position: fixed;
+    top: 0;
+    margin-right: 0;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    transition: 0.2s;
+    z-index: -1;
+  }
+
+  nav li {
+    margin: 0;
+    text-align: center;
+  }
+
+  nav a {
+    display: inline-block;
+    padding: 20px 0px;
+    margin-right: 0;
+  }
+
+  nav .links {
+    bottom: 7px;
+    left: 0;
+  }
+
+  /* Beranda */
+  .text-jember .text {
+    font-size: 64px;
+  }
+
+  /* Sejarah */
+  .content article#sejarah,
+  .content article#geografis {
+    padding-top: 50px;
+    height: auto;
+  }
+
+  #sejarah section,
+  #geografis section {
+    height: auto;
+  }
+
+  #sejarah .sejarah-img,
+  #geografis .geografis-img {
+    height: 50vh;
+  }
+
+  #sejarah .content-sejarah,
+  .content .content-geografis {
+    height: auto;
+  }
+
+  #sejarah h2,
+  #geografis h2,
+  aside h2,
+  #wisata h2 {
+    font-size: 32px;
+  }
+
+  #sejarah p,
+  #geografis p,
+  .container-profile .deskripsi {
+    font-size: 14px;
+  }
+
+  /* wisata */
+  #wisata .wrapp-wisata {
+    min-width: calc(100% - 40px);
+  }
+  .wrapp-wisata img{
+    object-position: 50% 20%;
+  }
+
+  .content-1 h3 {
+    font-size: 24px;
+  }
+
+  /* Aside */
+  aside h2 {
+    margin: 0 0 10px 0;
+  }
+
+  .container-profile figure {
+    height: 50vh;
+  }
+
+  .sosial-media .container-icon {
+    width: 28px;
+  }
+
+  /* Footer */
+  footer p {
+    font-size: 14px;
+  }
+}
