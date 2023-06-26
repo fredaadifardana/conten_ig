@@ -1,0 +1,65 @@
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  background-color: #1e2640;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.container .line {
+  border-radius: 10px;
+}
+
+.container .line:nth-child(1) {
+  width: 65px;
+  height: 10px;
+  background-color: white;
+  transform: rotate(0);
+  transition: transform 0.3s ease;
+}
+
+.container .line:nth-child(1).active {
+  transform: rotate(45deg);
+}
+
+.container .line:nth-child(2) {
+  width: 100%;
+  height: 10px;
+  position: absolute;
+  position: static;
+  background-color: white;
+  transform: scaleX(1);
+  transition: transform 0.3s ease;
+}
+
+.container .line:nth-child(2).active {
+  position: absolute;
+  transition: transform 0s ease;
+  transform: scaleX(0);
+}
+
+.container .line:nth-child(3) {
+  width: 65px;
+  height: 10px;
+  background-color: white;
+  transition: transform 0.3s ease;
+}
+
+.container .line:nth-child(3).active {
+  position: absolute;
+  transform: rotate(-45deg);
+}
